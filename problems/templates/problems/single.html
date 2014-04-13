@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block main %}
+<h1>{{ problem.title }}</h1>
+{% if message %}
+<div class="alert alert-{% if success %}success{% else %}danger{% endif %}">
+	<strong>{% if success %}{% trans "Браво!" %}{% else %}{% trans "Лошо!" %}{% endif %}</strong> {{ message }}
+</div>
+{% endif %}
+{{ problem.text }}
+<br /><br />
+<button type="button" data-problem={{ problem.slug }} class="btn btn-default">{% trans "Готов съм за контролни примери!" %}</button>
+<br /><br />
+<div id="challenge_container"></div>
+{% endblock %}

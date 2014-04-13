@@ -1,0 +1,12 @@
+{% load i18n %}
+<form action="" method="post" role="form">
+	{% for challenge in challenges %}
+	<div class="form-group">
+		<label for="challenge_{{ forloop.counter }}">{{ challenge.challenge }}</label>
+		<input type="hidden" name="challenge_{{ forloop.counter }}" value="{{ challenge.challenge }}" />
+		<input type="text" name="challenge_{{ forloop.counter }}_answer" id="challenge_{{ forloop.counter }}" class="form-control" required />
+	</div>
+	{% endfor %}
+	{% csrf_token %}
+	<button type="submit" class="btn btn-primary">{% trans "Давай!" %}</button>
+</form>
