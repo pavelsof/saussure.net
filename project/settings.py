@@ -29,6 +29,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'base',
+	'users',
 	'problems',
 )
 MIDDLEWARE_CLASSES = (
@@ -61,6 +62,7 @@ STATIC_URL = '/static/'
 ADMINS = (
 	('Pavel', 'pavelsof@gmail.com'),
 )
+AUTH_USER_MODEL = 'users.User'
 
 # Location-specific Settings
 if 'DYNO' in os.environ:
