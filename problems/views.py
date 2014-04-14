@@ -71,7 +71,7 @@ class Single(View):
 		"""
 		Checks whether the submitted answers are correct.
 		"""
-		for i in range(1, self.problem.number_of_challenges+2):
+		for i in range(1, self.problem.number_of_challenges+1):
 			name = 'challenge_' + str(i)
 			if not all(k in request.POST for k in (name, name+'_answer')):
 				return False
