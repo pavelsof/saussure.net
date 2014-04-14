@@ -28,7 +28,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
 	email = models.EmailField(max_length=240, unique=True)
-	name = models.CharField(max_length=240, blank=True)
+	name = models.CharField(max_length=240, default="Anon")
 	slug = models.SlugField(blank=True, unique=True)
 	created = models.DateTimeField(auto_now_add=True)
 	is_active = models.BooleanField(default=True)

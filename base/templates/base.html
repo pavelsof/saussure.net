@@ -16,18 +16,25 @@
 <body>
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/">{% trans "Дракон Держански" %}</a>
-				<ul class="nav navbar-nav">
-					<li ><a href="/problems">{% trans "Задачи" %}</a></li>
-					<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Мета" %} <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="/meta/creators">{% trans "Кои сме ние?" %}</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
+			<a class="navbar-brand" href="/">{% trans "Дракон Держански" %}</a>
+			<ul class="nav navbar-nav">
+				<li ><a href="/problems">{% trans "Задачи" %}</a></li>
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Мета" %} <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/meta/creators">{% trans "Кои сме ние?" %}</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			{% if user.is_authenticated %}
+				<li><a href="/users/me">{% trans "Профил" %}</a></li>
+				<li><a href="/users/logout">{% trans "Изход" %}</a></li>
+			{% else %}
+				<li><a href="/users/login">{% trans "Вход" %}</a></li>
+				<li><a href="/users/registration">{% trans "Регистрация" %}</a></li>
+			{% endif %}
+			</ul>
 		</div>
 	</nav>
 	<div class="container">
