@@ -82,9 +82,9 @@ class Single(View):
 				)
 			except ProblemChallenge.DoesNotExist:
 				return False
-			if request.POST[name+'_answer'] == challenge.answer:
-				return True
-			return False
+			if request.POST[name+'_answer'] != challenge.answer:
+				return False
+		return True
 
 
 class Challenge(Single):
