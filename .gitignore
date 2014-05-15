@@ -1,3 +1,4 @@
+base/static/node_modules/*
 development/*
 project/settings_local.py
 *.pyc
