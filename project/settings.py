@@ -13,13 +13,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^nb-m=j69krhowe2l&+eah*0_0wv=h8adkt=g8lg^*oiq=%a1*'
-
-
 # Application definition
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -58,29 +51,17 @@ USE_TZ = True
 STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
 
+
 # Added Later
 ADMINS = (
 	('Pavel', 'pavelsof@gmail.com'),
 )
 AUTH_USER_MODEL = 'users.User'
 
-# Location-specific Settings
-if 'DYNO' in os.environ:
-	import dj_database_url
-	DEBUG = True
-	TEMPLATE_DEBUG = True
-	ALLOWED_HOSTS = ['*']
-	DATABASES = {
-		'default': dj_database_url.config()
-	}
-else:
-	DEBUG = True
-	TEMPLATE_DEBUG = True
-	ALLOWED_HOSTS = []
-	DATABASES = {
-		'default': {
-			'ENGINE': 'django.db.backends.sqlite3',
-			'NAME': os.path.join(BASE_DIR, 'development/db.sqlite3'),
-		}
-	}
+
+# Location-specific and Secret Settings
+# SECRET_KEY
+# DEBUG, TEMPLATE_DEBUG, ALLOWED_HOSTS
+# DATABASES
+from project.settings_local import *
 
