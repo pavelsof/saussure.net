@@ -4,9 +4,12 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<title>{% block title %}{% trans "Дракон Держански" %}{% endblock %}</title>
+	<title>{% block title %}{% trans "Project Saussure" %}{% endblock %}</title>
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://fonts.googleapis.com/css?family=Roboto+Condensed:700&subset=latin,cyrillic" />
+	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'dist/style.css' %}" />
 	
 	<script type="text/javascript" src="{% static 'vendor/jquery-2.1.0.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
@@ -14,11 +17,61 @@
 	{% block scripts %}{% endblock %}
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
+	<header>
 		<div class="container">
-			<a class="navbar-brand" href="/">{% trans "Дракон Держански" %}</a>
+			<div class="col-sm-6">
+				<a href="/" class="logo"></a>
+				<h1>{% trans "Project Saussure" %}</h1>
+				<div class="clearfix"></div>
+			</div>
+			<div class="col-sm-4 col-sm-offset-2">
+				<form action="" method="post" role="form" class="form-horizontal">
+					<div class="form-group">
+						<label for="email" class="col-xs-3 control-label">{% trans "email" %}</label>
+						<div class="col-xs-9">
+							<input type="email" name="email" id="email" class="form-control input-sm" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="password" class="col-xs-3 control-label">{% trans "password" %}</label>
+						<div class="col-xs-9">
+							<input type="password" name="password" id="password" class="form-control input-sm" />
+						</div>
+					</div>
+					<div class="form-group">
+						<a href="#" class="pull-right text-muted">{% trans "forgotten username/password?" %}</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</header>
+	<nav class="navbar" role="navigation">
+		<div class="container">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/">{% trans "Home" %}</a></li>
+				<li><a href="/problems">{% trans "Problems" %}</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "About" %} <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/meta/creators">{% trans "Who are we?" %}</a></li>
+					</ul>
+				</li>
+				<li><a href="#">{% trans "News" %}</a></li>
+				<li><a href="/users/registration">{% trans "Register" %}</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">{% trans "English" %}</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!--nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<a class="navbar-brand" href="/">{% trans "Project Saussure" %}</a>
 			<ul class="nav navbar-nav">
-				<li ><a href="/problems">{% trans "Задачи" %}</a></li>
+				<li ><a href="/problems">{% trans "Problems" %}</a></li>
 				<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Мета" %} <b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -36,10 +89,8 @@
 			{% endif %}
 			</ul>
 		</div>
-	</nav>
-	<div class="container">
+	</nav-->
 	{% block main %}{% endblock %}
-	</div>
 	{% block modals %}{% endblock %}
 </body>
 </html>

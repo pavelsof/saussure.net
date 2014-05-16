@@ -2,4 +2,119 @@
 /*  Project Saussure                   */
 /* =================================== */
 
+@yellow: #e8df70;
+@green: #a2d39e;
+@blue: #00a79d;
+
+body {
+	font-family: "PT Sans", sans-serif;
+}
+
+header {
+	a.logo {
+		background-image: url('../img/logo.png');
+		background-position: center center;
+		background-repeat: no-repeat;
+		display: block;
+		float: left;
+		height: 120px;
+		width: 100px;
+	}
+	h1 {
+		color: black;
+		display: block;
+		float: left;
+		font-family: "Roboto Condensed", sans-serif;
+		font-size: 38px;
+		font-weight: 700;
+		line-height: 42px;
+		margin: 0;
+		padding: 18px 0 0 7px;
+		text-transform: uppercase;
+		word-spacing: 90px;
+		width: 180px;
+	}
+	form {
+		padding-top: 15px;
+		.form-group {
+			margin-bottom: 5px;
+			label {
+				font-weight: 400;
+			}
+		}
+		a.pull-right {
+			padding-right: 15px;
+		}
+	}
+}
+
+nav {
+	background-color: @yellow;
+	.nav > li > a {
+		color: inherit;
+		&:hover, &:active, &:focus {
+			background-color: @green;
+		}
+	}
+	.nav li.open > a {
+		background-color: @green;
+		&:hover, &:active, &:focus {
+			background-color: @green;
+		}
+	}
+	.nav ul.dropdown-menu {
+		background-color: @green;
+		a {
+			background-color: @green;
+			&:hover, &:active, &:focus {
+				background-color: @yellow;
+			}
+		}
+	}
+}
+
+#home {
+	.how {
+		clear: both;
+		margin: 60px auto 60px auto;
+		max-width: 900px;
+		.step {
+			float: left;
+			width: 180px;
+			.icon {
+				background-position: center center;
+				background-repeat: no-repeat;
+				height: 100px;
+				width: 100%;
+				&.icon_solve {
+					background-image: url('../img/solve_icon.png');
+				}
+				&.icon_test {
+					background-image: url('../img/test_icon.png');
+				}
+				&.icon_unlock {
+					background-image: url('../img/unlock_icon.png');
+				}
+				&.icon_discuss {
+					background-image: url('../img/discuss_icon.png');
+				}
+			}
+			strong {
+				clear: both;
+				display: block;
+				text-align: center;
+			}
+		}
+	}
+	.what {
+		background-color: #eee;
+		padding: 10px 0 30px 0;
+	}
+	.who {
+		margin: 60px 0 60px 0;
+		h3 {
+			margin-top: 0;
+		}
+	}
+}
 
