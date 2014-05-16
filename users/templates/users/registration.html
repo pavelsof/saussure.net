@@ -1,29 +1,36 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% block header_login %}{% endblock %}
 {% block main %}
-<h1>{% trans "Регистрация" %}</h1>
-{% if message %}
-<div class="alert alert-danger">
-	<strong>{% trans "Лошо!" %}</strong> {{ message }}
+<div class="container" id="registration">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h1>{% trans "Registration" %}</h1>
+			{% if message %}
+			<div class="alert alert-danger">
+				<strong>{% trans "Error!" %}</strong> {{ message }}
+			</div>
+			{% endif %}
+			<form action="" method="post" role="form">
+				<div class="form-group">
+					<label for="email">{% trans "Email" %}</label>
+					<input type="email" name="email" id="email" class="form-control" required />
+				</div>
+				<div class="form-group">
+					<label for="password">{% trans "Password" %}</label>
+					<input type="password" name="password" id="password" class="form-control" required />
+					<br />
+					<input type="password" name="password2" class="form-control" required />
+				</div>
+				<div class="form-group">
+					<label for="name">{% trans "Name" %}</label>
+					<input type="text" name="name" id="name" class="form-control" />
+					<p class="help-block">{% trans "Not required, but could contain any unicode character." %}</p>
+				</div>
+				{% csrf_token %}
+				<button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
+			</form>
+		</div>
+	</div>
 </div>
-{% endif %}
-<form action="" method="post" role="form">
-	<div class="form-group">
-		<label for="email">{% trans "Поща" %}</label>
-		<input type="email" name="email" id="email" class="form-control" required placeholder="{% trans "Обещаваме, че няма да спамим!" %}" />
-	</div>
-	<div class="form-group">
-		<label for="password">{% trans "Парола" %}</label>
-		<input type="password" name="password" id="password" class="form-control" required placeholder="{% trans "Изберете по-трудна парола" %}" />
-		<br />
-		<input type="password" name="password2" class="form-control" required placeholder="{% trans "И я напишете пак тук" %}" />
-	</div>
-	<div class="form-group">
-		<label for="name">{% trans "Име" %}</label>
-		<input type="text" name="name" id="name" class="form-control" placeholder="{% trans "Всякакви знаци са позволени тук" %}" />
-		<p class="help-block">{% trans "Незадължително поле" %}</p>
-	</div>
-	{% csrf_token %}
-	<button type="submit" class="btn btn-primary">{% trans "Регистрация" %}</button>
-</form>
 {% endblock %}

@@ -31,17 +31,17 @@ class Registration(View):
 		"""
 		# input validation
 		if not all(k in request.POST for k in ('email', 'password', 'password2')):
-			return self.render_page(request, _("Попълнете задължителните полета."))
+			return self.render_page(request, _("Please fill in all required fields."))
 		try: validate_email(request.POST['email'])
 		except ValidationError:
-			return self.render_page(request, _("Искаме истинска поща."))
+			return self.render_page(request, _("Real email is required."))
 		try:
 			User.objects.get(email=request.POST['email'])
 		except User.DoesNotExist: pass
 		else:
-			return self.render_page(request, _("Тази поща е вече заета."))
+			return self.render_page(request, _("This email is already taken."))
 		if request.POST['password2'] != request.POST['password']:
-			return self.render_page(request, _("Въвеждат се две пароли, но трябва да са еднакви."))
+			return self.render_page(request, _("The two passwords do not match."))
 		
 		# create new user
 		user = User.objects.create_user(request.POST['email'], request.POST['password'])
@@ -89,11 +89,11 @@ class Login(View):
 		try:
 			user = authenticate(username=request.POST['email'], password=request.POST['password'])
 		except:
-			return self.render_page(request, _("Такъв потребител няма."))
+			return self.render_page(request, _("No such user."))
 		if user is None:
-			return self.render_page(request, _("Такъв потребител няма."))
+			return self.render_page(request, _("No such user."))
 		if not user.is_active:
-			return self.render_page(request, _("Този потребител е изтрит."))
+			return self.render_page(request, _("User account has been de-activated."))
 		login(request, user)
 		return HttpResponseRedirect('/users/me')
 	

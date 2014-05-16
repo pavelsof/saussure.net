@@ -7,7 +7,7 @@
 	<title>{% block title %}{% trans "Project Saussure" %}{% endblock %}</title>
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" />
-	<link rel="stylesheet" type="text/css" media="screen" href="http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic" />
 	<link rel="stylesheet" type="text/css" media="screen" href="http://fonts.googleapis.com/css?family=Roboto+Condensed:700&subset=latin,cyrillic" />
 	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'dist/style.css' %}" />
 	
@@ -25,7 +25,10 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="col-sm-4 col-sm-offset-2">
-				<form action="" method="post" role="form" class="form-horizontal">
+			{% if user.is_authenticated %}
+			{% else %}
+				{% block header_login %}
+				<form action="/users/login/" method="post" role="form" class="form-horizontal">
 					<div class="form-group">
 						<label for="email" class="col-xs-3 control-label">{% trans "email" %}</label>
 						<div class="col-xs-9">
@@ -37,11 +40,15 @@
 						<div class="col-xs-9">
 							<input type="password" name="password" id="password" class="form-control input-sm" />
 						</div>
+						{% csrf_token %}
 					</div>
-					<div class="form-group">
-						<a href="#" class="pull-right text-muted">{% trans "forgotten username/password?" %}</a>
+					<div class="form-group text-muted">
+						<a href="#" class="pull-right">{% trans "forgotten username/password?" %}</a>
+						<button type="submit" class="btn-link pull-right">{% trans "login" %}</button>
 					</div>
 				</form>
+				{% endblock %}
+			{% endif %}
 			</div>
 		</div>
 	</header>
@@ -49,15 +56,15 @@
 		<div class="container">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/">{% trans "Home" %}</a></li>
-				<li><a href="/problems">{% trans "Problems" %}</a></li>
+				<li><a href="/problems/">{% trans "Problems" %}</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "About" %} <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="/meta/creators">{% trans "Who are we?" %}</a></li>
+						<li><a href="/meta/creators/">{% trans "Who are we?" %}</a></li>
 					</ul>
 				</li>
 				<li><a href="#">{% trans "News" %}</a></li>
-				<li><a href="/users/registration">{% trans "Register" %}</a></li>
+				<li><a href="/users/registration/">{% trans "Register" %}</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span></a>
 					<ul class="dropdown-menu">
@@ -67,30 +74,16 @@
 			</ul>
 		</div>
 	</nav>
-	<!--nav class="navbar navbar-default" role="navigation">
-		<div class="container">
-			<a class="navbar-brand" href="/">{% trans "Project Saussure" %}</a>
-			<ul class="nav navbar-nav">
-				<li ><a href="/problems">{% trans "Problems" %}</a></li>
-				<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Мета" %} <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="/meta/creators">{% trans "Кои сме ние?" %}</a></li>
-					</ul>
-				</li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-			{% if user.is_authenticated %}
-				<li><a href="/users/me">{% trans "Профил" %}</a></li>
-				<li><a href="/users/logout">{% trans "Изход" %}</a></li>
-			{% else %}
-				<li><a href="/users/login">{% trans "Вход" %}</a></li>
-				<li><a href="/users/registration">{% trans "Регистрация" %}</a></li>
-			{% endif %}
-			</ul>
-		</div>
-	</nav-->
 	{% block main %}{% endblock %}
+	<footer>
+		<div class="container">
+			<p class="text-center text-muted">
+				{% trans "Since 2014." %}
+				{% trans "Made by <strong>ѣ</strong>." %}
+				{% trans "<a href='http://github.com/pavelsof/saussure.net/'>Open source.</a>" %}
+			</p>
+		</div>
+	</footer>
 	{% block modals %}{% endblock %}
 </body>
 </html>
