@@ -1,6 +1,6 @@
 Project Saussure
 ============
-Source code of Project Saussure's website: saussure.net
+Source code of Project Saussure's website, [saussure.net](http://saussure.net/).
 
 Dependencies and Compatibility
 ---
