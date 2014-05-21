@@ -1,23 +1,25 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block main %}
-<h1>{% trans "Всички задачи" %}</h1>
-<table class="table table-bordered">
-	<thead>
-		<tr>
-			<th>{% trans "Код" %}</th>
-			<th>{% trans "Задача" %}</th>
-			<th>{% trans "Решена от" %}</th>
-		</tr>
-	</thead>
-	<tbody>
-	{% for problem in problems %}
-		<tr>
-			<td>{{ problem.slug }}</td>
-			<td><a href="/problems/{{ problem.slug }}">{{ problem.title }}</a></td>
-			<td>42</td>
-		</tr>
-	{% endfor %}
-	</tbody>
-</table>
+<div class="container">
+	<h1>{% trans "Problems" %}</h1>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>{% trans "Code" %}</th>
+				<th>{% trans "Problem" %}</th>
+				<th>{% trans "Solved by" %}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for problem in problems %}
+			<tr>
+				<td>{{ problem.slug }}</td>
+				<td><a href="/problems/{{ problem.slug }}">{{ problem.title }}</a></td>
+				<td>42</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
 {% endblock %}

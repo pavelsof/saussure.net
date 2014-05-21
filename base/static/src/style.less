@@ -5,12 +5,13 @@
 @yellow: #e8df70;
 @green: #a2d39e;
 @blue: #00a79d;
+@gray: #dcddde;
 
 body {
 	font-family: "PT Sans", sans-serif;
 }
 
-header {
+body > header {
 	a.logo {
 		background-image: url('../img/logo.png');
 		background-position: center center;
@@ -78,7 +79,7 @@ header {
 	}
 }
 
-nav {
+body > nav {
 	background-color: @yellow;
 	.nav > li > a {
 		color: inherit;
@@ -100,6 +101,12 @@ nav {
 				background-color: @yellow;
 			}
 		}
+	}
+}
+
+body > footer {
+	a {
+		color: inherit;
 	}
 }
 
@@ -137,7 +144,7 @@ nav {
 		}
 	}
 	.what {
-		background-color: #eee;
+		background-color: @gray;
 		padding: 10px 0 30px 0;
 	}
 	.who {
@@ -148,9 +155,13 @@ nav {
 	}
 }
 
-footer {
-	a {
-		color: inherit;
+article.problem {
+	header {
+		background-color: @blue;
+		color: white;
+		h1 {
+			text-align: center;
+		}
 	}
 }
 
