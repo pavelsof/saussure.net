@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>{% load i18n %}{% load staticfiles %}
+﻿<!DOCTYPE html>{% load i18n %}{% load staticfiles %}{% load gravatar %}
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -24,10 +24,24 @@
 				<h1>{% trans "Project Saussure" %}</h1>
 				<div class="clearfix"></div>
 			</div>
-			<div class="col-sm-4 col-sm-offset-2">
 			{% if user.is_authenticated %}
+			<div class="col-sm-6">
+				<div class="user_nav">
+					<div class="links">
+						<a href="/users/logout/">{% trans "Log out" %}</a>
+					</div>
+					<div class="avatar hidden-xs">
+						<a href="/users/me/" alt="{{ user.name }}">{% gravatar user.email 80 %}</a>
+					</div>
+					<div class="info">
+						<a href="/users/me/">{{ user.name }}</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
 			{% else %}
-				{% block header_login %}
+			{% block header_login %}
+			<div class="col-sm-4 col-sm-offset-2">
 				<form action="/users/login/" method="post" role="form" class="form-horizontal">
 					<div class="form-group">
 						<label for="email" class="col-xs-3 control-label">{% trans "email" %}</label>
@@ -47,9 +61,9 @@
 						<button type="submit" class="btn-link pull-right">{% trans "login" %}</button>
 					</div>
 				</form>
-				{% endblock %}
-			{% endif %}
 			</div>
+			{% endblock %}
+			{% endif %}
 		</div>
 	</header>
 	<nav class="navbar" role="navigation">
