@@ -35,6 +35,7 @@ class Problem(models.Model):
 	slug = models.SlugField(unique=True)
 	title = models.CharField(max_length=240)
 	text = models.TextField()
+	note = models.TextField()
 	language_family = models.ForeignKey(LanguageFamily)
 	tags = models.ManyToManyField(Tag)
 	number_of_challenges = models.PositiveSmallIntegerField(default=4)
