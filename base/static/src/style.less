@@ -105,6 +105,7 @@ body > nav {
 }
 
 body > footer {
+	margin-top: 10px;
 	a {
 		color: inherit;
 	}
@@ -159,7 +160,82 @@ article.problem {
 	header {
 		background-color: @blue;
 		color: white;
+		margin-bottom: 15px;
+		h2 {
+			font-size: 24px;
+			font-weight: 400;
+			margin: 15px auto 0 auto;
+			text-align: center;
+		}
 		h1 {
+			font-size: 24px;
+			font-weight: 700;
+			margin: 0 auto 15px auto;
+			text-align: center;
+		}
+		.count_solved {
+			display: block;
+			font-size: 16px;
+			margin-top: 47px;
+			text-align: right;
+		}
+	}
+	aside {
+		float: left;
+		margin-left: 10px;
+		a {
+			background-position: center center;
+			background-repeat: no-repeat;
+			border: none;
+			clear: both;
+			display: block;
+			height: 55px;
+			margin-bottom: 25px;
+			width: 55px;
+			&.print {
+				background-image: url('../img/print_button.png');
+			}
+			&.new_window {
+				background-image: url('../img/new_window_button.png');
+			}
+			&.get_pdf {
+				background-image: url('../img/get_pdf_button.png');
+			}
+		}
+	}
+	section {
+		margin-bottom: 25px;
+		button.fetch {
+			background-color: @yellow;
+			border: 5px solid transparent;
+			color: @blue;
+			display: block;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 24px;
+			margin: 0 auto 20px auto;
+			padding: 2px 0;
+			width: 150px;
+			&:hover {
+				border-color: @blue;
+			}
+		}
+	}
+	footer {
+		background-color: @blue;
+		color: white;
+		padding: 30px 0;
+		h2 {
+			font-size: 16px;
+			font-weight: 700;
+			margin: 0 0 10px 0;
+		}
+		p {
+			font-size: 16px;
+		}
+		strong {
+			display: block;
+			font-size: 18px;
 			text-align: center;
 		}
 	}

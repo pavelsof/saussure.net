@@ -23,7 +23,7 @@ var S = {
 				S.problems.dom.get_challenge_button.click(function(e) {
 					e.preventDefault();
 					S.problems.dom.challenge_container.load(
-						'/problems/'+ S.problems.dom.get_challenge_button.data('problem') +'/challenge'
+						'/problems/'+ S.problems.dom.get_challenge_button.data('problem') +'/challenge/'
 					);
 				});
 			}

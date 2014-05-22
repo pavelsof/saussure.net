@@ -5,7 +5,7 @@ from django.utils.translation import ugettext as _
 from django.views.generic.base import View
 
 from problems.models import Problem
-from problems.models import Challenge
+from problems.models import Challenge as ChallengeModel
 
 
 class List(View):
@@ -76,11 +76,11 @@ class Single(View):
 			if not all(k in request.POST for k in (name, name+'_answer')):
 				return False
 			try:
-				challenge = Challenge.objects.get(
+				challenge = ChallengeModel.objects.get(
 					problem = self.problem,
 					challenge = request.POST[name]
 				)
-			except Challenge.DoesNotExist:
+			except ChallengeModel.DoesNotExist:
 				return False
 			if request.POST[name+'_answer'] != challenge.answer:
 				return False
@@ -93,7 +93,7 @@ class Challenge(Single):
 		Renders a challenge for the problem.
 		"""
 		self.identify_problem(slug)
-		challenges = Challenge.objects.filter(
+		challenges = ChallengeModel.objects.filter(
 			problem = self.problem
 		).order_by('?')[:self.problem.number_of_challenges]
 		return render_to_response(

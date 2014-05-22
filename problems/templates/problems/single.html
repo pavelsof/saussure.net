@@ -7,28 +7,63 @@
 			<div class="row">
 				<div class="col-sm-3"></div>
 				<div class="col-sm-6">
+					<h2>{{ problem.slug }}</h2>
 					<h1>{{ problem.title }}</h1>
 				</div>
-				<div class="col-sm-3"></div>
+				<div class="col-sm-3">
+					<span class="count_solved">{% trans "Solved by 42" %}</span>
+				</div>
 			</div>
 		</div>
 	</header>
+	<aside>
+		<a href="#" class="print" title="{% trans "Print" %}"></a>
+		<a href="#" class="new_window" title="{% trans "Open in new window" %}"></a>
+		<a href="#" class="get_pdf" title="{% trans "Get .pdf" %}"></a>
+	</aside>
 	<section>
-		
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					{{ problem.text }}
+				</div>
+			</div>
+			<div class="row">
+				<button type="button" data-problem={{ problem.slug }} class="fetch">{% trans "Ready for Action!" %}</button>
+				{% if message %}
+				<div class="alert alert-{% if success %}success{% else %}danger{% endif %}">
+					<strong>{% if success %}{% trans "Success!" %}{% else %}{% trans "Error!" %}{% endif %}</strong> {{ message }}
+				</div>
+				{% endif %}
+			</div>
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					<div id="challenge_container"></div>
+				</div>
+			</div>
+		</div>
 	</section>
 	<footer>
-		
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<h2>{% trans "About the language" %}</h2>
+					<p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+				<div class="col-sm-4">
+					<h2>{% trans "Nota bene" %}</h2>
+					<p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo duo dolores et ea rebum. At vero eos et accusam et justo duo dolores et ea rebum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+				</div>
+				<div class="col-sm-4">
+					<p>
+						<strong>Bulgarian National Olympiad</strong>
+						<strong>Haskovo, 2008</strong>
+						<br /><br />
+						<strong>{% trans "Author:" %} Ivan Derzhanski</strong>
+					</p>
+				</div>
+			</div>
+		</div>
 	</footer>
-	<h1>{{ problem.title }}</h1>
-	{% if message %}
-	<div class="alert alert-{% if success %}success{% else %}danger{% endif %}">
-		<strong>{% if success %}{% trans "Success!" %}{% else %}{% trans "Error!" %}{% endif %}</strong> {{ message }}
-	</div>
-	{% endif %}
-	{{ problem.text }}
-	<br /><br />
-	<button type="button" data-problem={{ problem.slug }} class="btn btn-default">{% trans "Ready for Action!" %}</button>
-	<br /><br />
-	<div id="challenge_container"></div>
 </article>
 {% endblock %}
