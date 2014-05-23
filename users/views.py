@@ -7,6 +7,7 @@ from django.template import RequestContext
 from django.utils.translation import ugettext as _
 from django.views.generic.base import View
 
+from problems.models import Problem
 from users.models import User
 
 
@@ -143,6 +144,9 @@ class Profile(View):
 				profile = User.objects.get(slug=slug)
 			except User.DoesNotExist:
 				raise Http404
+		
+		# problems
+		all_problems = Problem.objects.all()
 		
 		# render the page
 		return render_to_response(

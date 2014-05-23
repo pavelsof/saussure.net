@@ -1,7 +1,47 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n %}{% load gravatar %}
 {% block main %}
-<div class="container" id="profile">
-	<h1>{{ profile.name }}</h1>
-</div>
+<article class="user">
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2">
+					<div class="avatar">
+						{% gravatar user.email 150 %}
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4">
+					<h1>{{ profile.name }}</h1>
+					<div class="clearfix"></div>
+					<dl class="dl-horizontal">
+						<dt>{% trans "Active since" %}</dt>
+						<dd>{{ profile }}</dd>
+						<dt>{% trans "Problems solved" %}</dt>
+						<dd>{{ profile }}</dd>
+						<dt>{% trans "Location" %}</dt>
+						<dd>{{ profile }}</dd>
+					</dl>
+				</div>
+				<div class="col-sm-3 col-md-2">
+					<div class="links">
+						<a href="#" class="message" title="{% trans "Send message" %}"></a>
+						<a href="#" class="stats" title="{% trans "User stats" %}"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-7 col-sm-offset-1 col-md-6 col-md-offset-2">
+					<h2>{% trans "Achievements" %}</h2>
+				</div>
+				<div class="col-sm-3 col-md-2">
+					<h2>{% trans "Problems" %}</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+</article>
 {% endblock %}

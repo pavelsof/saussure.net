@@ -53,10 +53,10 @@ class Single(View):
 		self.identify_problem(slug)
 		if not self.check_challenges(request):
 			success = False
-			message = _("Грешен отговор.")
+			message = _("You got it wrong.")
 		else:
 			success = True
-			message = _("Правилен отговор.")
+			message = _("You got it right.")
 		return render_to_response(
 			'problems/single.html',
 			{
@@ -100,6 +100,21 @@ class Challenge(Single):
 			'problems/challenge.html',
 			{
 				'challenges': challenges
+			},
+			context_instance = RequestContext(request)
+		)
+
+
+class Simple(Single):
+	def get(self, request, slug):
+		"""
+		Renders the problem in (almost) plain text.
+		"""
+		self.identify_problem(slug)
+		return render_to_response(
+			'problems/simple.html',
+			{
+				'problem': self.problem
 			},
 			context_instance = RequestContext(request)
 		)

@@ -18,7 +18,7 @@
 	</header>
 	<aside>
 		<a href="#" class="print" title="{% trans "Print" %}"></a>
-		<a href="#" class="new_window" title="{% trans "Open in new window" %}"></a>
+		<a href="/problems/{{ problem.slug }}/simple/" target="_blank" class="new_window" title="{% trans "Open in new window" %}"></a>
 		<a href="#" class="get_pdf" title="{% trans "Get .pdf" %}"></a>
 	</aside>
 	<section>
@@ -29,12 +29,16 @@
 				</div>
 			</div>
 			<div class="row">
+			{% if user.is_authenticated %}
 				<button type="button" data-problem={{ problem.slug }} class="fetch">{% trans "Ready for Action!" %}</button>
 				{% if message %}
 				<div class="alert alert-{% if success %}success{% else %}danger{% endif %}">
 					<strong>{% if success %}{% trans "Success!" %}{% else %}{% trans "Error!" %}{% endif %}</strong> {{ message }}
 				</div>
 				{% endif %}
+			{% else %}
+				<p class="text-center text-warning">{% trans "Please login in order to check your answers!" %}</p>
+			{% endif %}
 			</div>
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">
