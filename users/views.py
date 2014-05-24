@@ -175,7 +175,6 @@ class Profile(View):
 					problems_solved += 1
 			try:
 				percentage = round(problems_solved / problems_total.count() * 100)
-				print(percentage)
 			except ZeroDivisionError:
 				percentage = 0
 			tags.append({
