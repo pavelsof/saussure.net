@@ -7,7 +7,9 @@ from django.template import RequestContext
 from django.utils.translation import ugettext as _
 from django.views.generic.base import View
 
+from problems.models import Attempt
 from problems.models import Problem
+from problems.models import Tag
 from users.models import User
 
 
@@ -147,12 +149,49 @@ class Profile(View):
 		
 		# problems
 		all_problems = Problem.objects.all()
+		solved_problems = []
+		for problem in all_problems:
+			if Attempt.objects.filter(
+				user=request.user,
+				problem=problem,
+				is_successful=True
+			).count() > 0:
+				solved_problems.append(problem)
+		
+		# tags
+		all_tags = Tag.objects.all()
+		tags = []
+		for tag in all_tags:
+			problems_total = Problem.objects.filter(
+				tags=tag
+			)
+			problems_solved = 0
+			for problem in problems_total:
+				if Attempt.objects.filter(
+					user=request.user,
+					problem=problem,
+					is_successful=True
+				).count() > 0:
+					problems_solved += 1
+			try:
+				percentage = round(problems_solved / problems_total.count() * 100)
+				print(percentage)
+			except ZeroDivisionError:
+				percentage = 0
+			tags.append({
+				'name': tag.name,
+				'slug': tag.slug,
+				'percentage': percentage
+			})
 		
 		# render the page
 		return render_to_response(
 			'users/profile.html',
 			{
-				'profile': profile
+				'profile': profile,
+				'tags': tags,
+				'all_problems': all_problems,
+				'solved_problems': solved_problems
 			},
 			context_instance = RequestContext(request)
 		)

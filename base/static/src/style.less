@@ -294,7 +294,70 @@ article.user {
 		}
 	}
 	section {
-		
+		.tags {
+			margin: 0 auto;
+			width: 700px;
+			.tag_container {
+				background-position: center top;
+				background-repeat: no-repeat;
+				float: left;
+				height: 140px;
+				margin: 0 10px 10px 10px;
+				position: relative;
+				width: 120px;
+				&.yellow {
+					background-image: url('../img/yellow.png');
+				}
+				.tag {
+					background-position: center center;
+					background-repeat: no-repeat;
+					display: block;
+					height: 100px;
+					margin: 10px auto;
+					width: 100px;
+					&.morphology {
+						background-image: url('../img/morphology.png');
+					}
+					&.numeral_systems {
+						background-image: url('../img/numeral_systems.png');
+					}
+					&.phonology {
+						background-image: url('../img/phonology.png');
+					}
+					&.syntax {
+						background-image: url('../img/syntax.png');
+					}
+					&.writing_systems {
+						background-image: url('../img/writing_systems.png');
+					}
+				}
+				strong {
+					bottom: 0;
+					clear: both;
+					display: block;
+					font-weight: 400;
+					position: absolute;
+					text-align: center;
+					width: 100%;
+				}
+			}
+		}
+		.problems {
+			.problem {
+				border-radius: 5px;
+				color: inherit;
+				display: inline-block;
+				padding: 3px 10px;
+				text-decoration: none;
+				&:hover {
+					background-color: @yellow;
+					text-decoration: none;
+				}
+				&.solved {
+					background-color: @green;
+				}
+			}
+		}
 	}
 }
 

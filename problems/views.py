@@ -4,8 +4,9 @@ from django.template import RequestContext
 from django.utils.translation import ugettext as _
 from django.views.generic.base import View
 
-from problems.models import Problem
+from problems.models import Attempt
 from problems.models import Challenge as ChallengeModel
+from problems.models import Problem
 
 
 class List(View):
@@ -57,6 +58,12 @@ class Single(View):
 		else:
 			success = True
 			message = _("You got it right.")
+		attempt = Attempt(
+			problem = self.problem,
+			user = request.user,
+			is_successful = success
+		)
+		attempt.save()
 		return render_to_response(
 			'problems/single.html',
 			{
