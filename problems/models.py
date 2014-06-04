@@ -23,6 +23,10 @@ class LanguageFamily(models.Model):
 class Tag(models.Model):
 	name = models.CharField(max_length=240)
 	slug = models.SlugField(unique=True)
+	ordering = models.SmallIntegerField()
+	
+	class Meta:
+		ordering = ['ordering']
 	
 	def __str__(self):
 		"""
