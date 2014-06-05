@@ -28,6 +28,7 @@ INSTALLED_APPS = (
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -40,11 +41,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
-LANGUAGE_CODE = 'en-gb'
+LANGUAGE_CODE = 'bg'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+LOCALE_PATHS = ('locale', )
 
 
 # Static files (CSS, JavaScript, Images)

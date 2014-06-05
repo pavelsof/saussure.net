@@ -1,0 +1,272 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-05 17:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: base/templates/base.html:7 base/templates/base.html.py:24
+#: problems/templates/problems/simple.html:7
+msgid "Project Saussure"
+msgstr "Проект Сосюр"
+
+#: base/templates/base.html:31
+msgid "Log out"
+msgstr "Изход"
+
+#: base/templates/base.html:47
+msgid "email"
+msgstr "имейл"
+
+#: base/templates/base.html:53
+msgid "password"
+msgstr "парола"
+
+#: base/templates/base.html:60
+msgid "login"
+msgstr "вход"
+
+#: base/templates/base.html:61
+msgid "forgotten username/password?"
+msgstr "забравена парола?"
+
+#: base/templates/base.html:72
+msgid "Home"
+msgstr "Начало"
+
+#: base/templates/base.html:73 problems/templates/problems/list.html:5
+#: users/templates/users/profile.html:56
+msgid "Problems"
+msgstr "Задачи"
+
+#: base/templates/base.html:75
+msgid "About"
+msgstr "Относно"
+
+#: base/templates/base.html:77
+msgid "Who are we?"
+msgstr "Кои сме ние?"
+
+#: base/templates/base.html:80
+msgid "News"
+msgstr "Новини"
+
+#: base/templates/base.html:82 users/templates/users/registration.html:31
+msgid "Register"
+msgstr "Регистрация"
+
+#: base/templates/base.html:87
+msgid "Bulgarian"
+msgstr "български"
+
+#: base/templates/base.html:97
+msgid "Since 2014."
+msgstr "От 2014."
+
+#: base/templates/base.html:98
+msgid "Made by <strong>ѣ</strong>."
+msgstr "Създадено от <strong>ѣ</strong>."
+
+#: base/templates/base.html:99
+msgid "<a href='http://github.com/pavelsof/saussure.net/'>Open source.</a>"
+msgstr "<a href='http://github.com/pavelsof/saussure.net/'>Отворен код.</a>"
+
+#: base/templates/home.html:9
+msgid "Solve a problem"
+msgstr "Реши задача"
+
+#: base/templates/home.html:13
+msgid "Test yourself"
+msgstr "Провери решението"
+
+#: base/templates/home.html:17
+msgid "Unlock problems"
+msgstr "Отключи още задачи"
+
+#: base/templates/home.html:21
+msgid "Be crazy"
+msgstr "Полудей"
+
+#: base/templates/home.html:25
+msgid "Discuss"
+msgstr "Обсъди"
+
+#: base/templates/home.html:33
+msgid "What is Linguistics?"
+msgstr "Що е лингвистика?"
+
+#: base/templates/home.html:37
+msgid "What is a Linguistics Problem?"
+msgstr "Що е задача по лингвистика?"
+
+#: base/templates/home.html:41
+msgid "What is a Linguistics Competition?"
+msgstr "Що е състезание по лингвистика?"
+
+#: base/templates/home.html:54
+msgid "Ferdinand de Saussure"
+msgstr "Фердинан дьо Сосюр"
+
+#: problems/views.py:57
+msgid "You got it wrong."
+msgstr "Направи грешка."
+
+#: problems/views.py:60
+msgid "You got it right."
+msgstr "Правилно решение."
+
+#: problems/templates/problems/challenge.html:11
+msgid "Submit!"
+msgstr "Давай!"
+
+#: problems/templates/problems/list.html:9
+msgid "Code"
+msgstr "Код"
+
+#: problems/templates/problems/list.html:10
+msgid "Problem"
+msgstr "Задача"
+
+#: problems/templates/problems/list.html:11
+msgid "Solved by"
+msgstr "Решена от"
+
+#: problems/templates/problems/single.html:14
+msgid "Solved by 42"
+msgstr "Решена от 42"
+
+#: problems/templates/problems/single.html:20
+msgid "Print"
+msgstr "Отпечатай"
+
+#: problems/templates/problems/single.html:21
+msgid "Open in new window"
+msgstr "Отвори в нов прозорец"
+
+#: problems/templates/problems/single.html:22
+msgid "Get .pdf"
+msgstr "Свали .pdf"
+
+#: problems/templates/problems/single.html:33
+msgid "Ready for Action!"
+msgstr "Готов(а)!"
+
+#: problems/templates/problems/single.html:36
+msgid "Success!"
+msgstr "Браво!"
+
+#: problems/templates/problems/single.html:36
+#: users/templates/users/login.html:11
+#: users/templates/users/registration.html:11
+msgid "Error!"
+msgstr "Грешка!"
+
+#: problems/templates/problems/single.html:40
+msgid "Please login in order to check your answers!"
+msgstr "Моля регистрирайте се, за да проверите решението си!"
+
+#: problems/templates/problems/single.html:54
+msgid "About the language"
+msgstr "Относно езика"
+
+#: problems/templates/problems/single.html:58
+msgid "Nota bene"
+msgstr "Забележка"
+
+#: problems/templates/problems/single.html:66
+msgid "Author:"
+msgstr "Автор:"
+
+#: users/views.py:37
+msgid "Please fill in all required fields."
+msgstr "Моля попълнете всички полета, отбелязани като задължителни!"
+
+#: users/views.py:40
+msgid "Real email is required."
+msgstr "Истински имейл ни трябва."
+
+#: users/views.py:45
+msgid "This email is already taken."
+msgstr "Този имейл вече е зает."
+
+#: users/views.py:47
+msgid "The two passwords do not match."
+msgstr "Двете пароли не съвпадат."
+
+#: users/views.py:95 users/views.py:97
+msgid "No such user."
+msgstr "Няма такъв потребител."
+
+#: users/views.py:99
+msgid "User account has been de-activated."
+msgstr "Потребителската сметка е изключена."
+
+#: users/templates/users/login.html:8 users/templates/users/login.html:24
+msgid "Login"
+msgstr "Вход"
+
+#: users/templates/users/login.html:16
+#: users/templates/users/registration.html:16
+msgid "Email"
+msgstr "Имейл"
+
+#: users/templates/users/login.html:20
+#: users/templates/users/registration.html:20
+msgid "Password"
+msgstr "Парола"
+
+#: users/templates/users/profile.html:17
+msgid "Active since"
+msgstr "Активен от"
+
+#: users/templates/users/profile.html:19
+msgid "Problems solved"
+msgstr "Решени задачи"
+
+#: users/templates/users/profile.html:21
+msgid "Location"
+msgstr "Местоположение"
+
+#: users/templates/users/profile.html:27
+msgid "Send message"
+msgstr "Изпрати съобщение"
+
+#: users/templates/users/profile.html:28
+msgid "User stats"
+msgstr "Статистика"
+
+#: users/templates/users/profile.html:38
+msgid "Achievements"
+msgstr "Постижения"
+
+#: users/templates/users/profile.html:44
+msgid "Completed!"
+msgstr "Завършено!"
+
+#: users/templates/users/registration.html:8
+msgid "Registration"
+msgstr "Регистрация"
+
+#: users/templates/users/registration.html:26
+msgid "Name"
+msgstr "Имена"
+
+#: users/templates/users/registration.html:28
+msgid "Not required, but could contain any unicode character."
+msgstr "Не е задължително, но може да съдържа знаци всякакви."
+
+#~ msgid "English"
+#~ msgstr "английски"
