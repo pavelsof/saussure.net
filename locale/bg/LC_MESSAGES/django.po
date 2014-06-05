@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-05 17:42+0000\n"
+"POT-Creation-Date: 2014-06-05 19:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,31 +56,31 @@ msgstr "Задачи"
 msgid "About"
 msgstr "Относно"
 
-#: base/templates/base.html:77
+#: base/templates/base.html:77 base/templates/base.html.py:78
 msgid "Who are we?"
 msgstr "Кои сме ние?"
 
-#: base/templates/base.html:80
+#: base/templates/base.html:81
 msgid "News"
 msgstr "Новини"
 
-#: base/templates/base.html:82 users/templates/users/registration.html:31
+#: base/templates/base.html:83 users/templates/users/registration.html:31
 msgid "Register"
 msgstr "Регистрация"
 
-#: base/templates/base.html:87
+#: base/templates/base.html:88
 msgid "Bulgarian"
 msgstr "български"
 
-#: base/templates/base.html:97
+#: base/templates/base.html:98
 msgid "Since 2014."
 msgstr "От 2014."
 
-#: base/templates/base.html:98
+#: base/templates/base.html:99
 msgid "Made by <strong>ѣ</strong>."
 msgstr "Създадено от <strong>ѣ</strong>."
 
-#: base/templates/base.html:99
+#: base/templates/base.html:100
 msgid "<a href='http://github.com/pavelsof/saussure.net/'>Open source.</a>"
 msgstr "<a href='http://github.com/pavelsof/saussure.net/'>Отворен код.</a>"
 
@@ -120,11 +120,11 @@ msgstr "Що е състезание по лингвистика?"
 msgid "Ferdinand de Saussure"
 msgstr "Фердинан дьо Сосюр"
 
-#: problems/views.py:57
+#: problems/views.py:62
 msgid "You got it wrong."
 msgstr "Направи грешка."
 
-#: problems/views.py:60
+#: problems/views.py:65
 msgid "You got it right."
 msgstr "Правилно решение."
 
@@ -143,6 +143,23 @@ msgstr "Задача"
 #: problems/templates/problems/list.html:11
 msgid "Solved by"
 msgstr "Решена от"
+
+#: problems/templates/problems/list.html:12
+msgid "Last comment"
+msgstr "Последен коментар"
+
+#: problems/templates/problems/list.html:23
+#, python-format
+msgid ""
+"\n"
+"\t\t\t\t<td><a href=\"/problems/%(problem.slug)s/discussion/\">%(link)s</a></"
+"td>\n"
+"\t\t\t\t\t"
+msgstr ""
+
+#: problems/templates/problems/list.html:27
+msgid "Be the first one!"
+msgstr "Напиши първия!"
 
 #: problems/templates/problems/single.html:14
 msgid "Solved by 42"

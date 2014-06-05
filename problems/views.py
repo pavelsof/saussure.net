@@ -15,10 +15,15 @@ class List(View):
 		Renders all problems.
 		"""
 		problems = Problem.objects.all()
+		problems_solved_by_user = Attempt.objects.filter(
+			user = request.user,
+			is_successful = True
+		).values_list('problem__pk', flat=True).distinct()
 		return render_to_response(
 			'problems/list.html',
 			{
-				'problems': problems
+				'problems': problems,
+				'problems_solved_by_user': problems_solved_by_user
 			},
 			context_instance = RequestContext(request)
 		)

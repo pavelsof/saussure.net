@@ -45,6 +45,29 @@ class Problem(models.Model):
 	number_of_challenges = models.PositiveSmallIntegerField(default=4)
 	created = models.DateTimeField(auto_now_add=True)
 	
+	@property
+	def count_solved(self):
+		"""
+		Returns the number of users who have solved the problem.
+		"""
+		return Attempt.objects.filter(
+			problem = self,
+			is_successful = True
+		).values('user').distinct().count()
+	
+	@property
+	def last_comment(self):
+		"""
+		Returns the problem's last comment.
+		"""
+		last_comments = Comment.objects.filter(
+			problem = self
+		).order_by('created')
+		if len(last_comments):
+			return last_comments[0]
+		else:
+			return None
+	
 	def __str__(self):
 		"""
 		Returns the model's string representation.
@@ -86,4 +109,18 @@ class Attempt(models.Model):
 		Returns the model's string representation.
 		"""
 		return str(self.user)+': '+str(self.problem)
+
+
+class Comment(models.Model):
+	problem = models.ForeignKey(Problem)
+	parent = models.ForeignKey('self', blank=True, null=True)
+	user = models.ForeignKey(settings.AUTH_USER_MODEL)
+	text = models.TextField()
+	created = models.DateTimeField(auto_now_add=True)
+	
+	def __str__(self):
+		"""
+		Returns the model's string representation.
+		"""
+		return self.text
 
