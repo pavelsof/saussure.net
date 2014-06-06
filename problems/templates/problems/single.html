@@ -56,12 +56,12 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<h2>{% trans "About the language" %}</h2>
-					<p>{{ problem.language.description }}</p>
+					<p>{{ problem.language.description|safe }}</p>
 				</div>
 				<div class="col-sm-4">
 					{% if problem.note %}
 					<h2>{% trans "Nota bene" %}</h2>
-					<p>{{ problem.note }}</p>
+					<p>{{ problem.note|safe }}</p>
 					{% endif %}
 				</div>
 				<div class="col-sm-4">
