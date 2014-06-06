@@ -51,7 +51,7 @@ class Tag(models.Model):
 class Problem(models.Model):
 	slug = models.SlugField(unique=True)
 	title = models.CharField(max_length=240)
-	language = models.ForeignKey(Language)
+	language = models.ForeignKey(Language, blank=False, null=False)
 	tags = models.ManyToManyField(Tag)
 	author = models.CharField(max_length=240)
 	source = models.CharField(max_length=240)
