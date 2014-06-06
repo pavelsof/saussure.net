@@ -142,6 +142,9 @@ class Discussion(Single):
 		self.identify_problem(slug)
 		return render_to_response(
 			'problems/discussion.html',
+			{
+				'problem': self.problem
+			},
 			context_instance = RequestContext(request)
 		)
 

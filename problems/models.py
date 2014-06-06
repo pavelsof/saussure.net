@@ -20,6 +20,19 @@ class LanguageFamily(models.Model):
 		return self.name
 
 
+class Language(models.Model):
+	name = models.CharField(max_length=240)
+	family = models.ForeignKey(LanguageFamily)
+	description = models.TextField()
+	slug = models.SlugField(unique=True)
+	
+	def __str__(self):
+		"""
+		Returns the model's string representation.
+		"""
+		return self.name
+
+
 class Tag(models.Model):
 	name = models.CharField(max_length=240)
 	slug = models.SlugField(unique=True)
@@ -38,10 +51,12 @@ class Tag(models.Model):
 class Problem(models.Model):
 	slug = models.SlugField(unique=True)
 	title = models.CharField(max_length=240)
-	text = models.TextField()
-	note = models.TextField()
-	language_family = models.ForeignKey(LanguageFamily)
+	language = models.ForeignKey(Language)
 	tags = models.ManyToManyField(Tag)
+	author = models.CharField(max_length=240)
+	source = models.CharField(max_length=240)
+	text = models.TextField()
+	note = models.TextField(blank=True, null=True)
 	number_of_challenges = models.PositiveSmallIntegerField(default=4)
 	created = models.DateTimeField(auto_now_add=True)
 	

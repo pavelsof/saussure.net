@@ -110,11 +110,11 @@ msgstr "Що е лингвистика?"
 
 #: base/templates/home.html:37
 msgid "What is a Linguistics Problem?"
-msgstr "Що е задача по лингвистика?"
+msgstr "Що е лингвистична задача?"
 
 #: base/templates/home.html:41
 msgid "What is a Linguistics Competition?"
-msgstr "Що е състезание по лингвистика?"
+msgstr "Що е лингвистично състезание?"
 
 #: base/templates/home.html:54
 msgid "Ferdinand de Saussure"
