@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-05 19:51+0000\n"
+"POT-Creation-Date: 2014-06-06 12:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,7 @@ msgstr "Кои сме ние?"
 msgid "News"
 msgstr "Новини"
 
-#: base/templates/base.html:83 users/templates/users/registration.html:31
+#: base/templates/base.html:83 users/templates/users/registration.html:33
 msgid "Register"
 msgstr "Регистрация"
 
@@ -120,14 +120,6 @@ msgstr "Що е лингвистично състезание?"
 msgid "Ferdinand de Saussure"
 msgstr "Фердинан дьо Сосюр"
 
-#: problems/views.py:62
-msgid "You got it wrong."
-msgstr "Направи грешка."
-
-#: problems/views.py:65
-msgid "You got it right."
-msgstr "Правилно решение."
-
 #: problems/templates/problems/challenge.html:11
 msgid "Submit!"
 msgstr "Давай!"
@@ -148,88 +140,67 @@ msgstr "Решена от"
 msgid "Last comment"
 msgstr "Последен коментар"
 
-#: problems/templates/problems/list.html:23
-#, python-format
-msgid ""
-"\n"
-"\t\t\t\t<td><a href=\"/problems/%(problem.slug)s/discussion/\">%(link)s</a></"
-"td>\n"
-"\t\t\t\t\t"
-msgstr ""
-
-#: problems/templates/problems/list.html:27
+#: problems/templates/problems/list.html:25
 msgid "Be the first one!"
 msgstr "Напиши първия!"
 
-#: problems/templates/problems/single.html:14
-msgid "Solved by 42"
-msgstr "Решена от 42"
+#: problems/templates/problems/single.html:15
+#, python-format
+msgid ""
+"\n"
+"\t\t\t\t\tSolved by %(count_solved)s\n"
+"\t\t\t\t\t"
+msgstr ""
 
-#: problems/templates/problems/single.html:20
+#: problems/templates/problems/single.html:24
 msgid "Print"
 msgstr "Отпечатай"
 
-#: problems/templates/problems/single.html:21
+#: problems/templates/problems/single.html:25
 msgid "Open in new window"
 msgstr "Отвори в нов прозорец"
 
-#: problems/templates/problems/single.html:22
+#: problems/templates/problems/single.html:26
 msgid "Get .pdf"
 msgstr "Свали .pdf"
 
-#: problems/templates/problems/single.html:33
+#: problems/templates/problems/single.html:37
 msgid "Ready for Action!"
 msgstr "Готов(а)!"
 
-#: problems/templates/problems/single.html:36
+#: problems/templates/problems/single.html:40
 msgid "Success!"
 msgstr "Браво!"
 
-#: problems/templates/problems/single.html:36
+#: problems/templates/problems/single.html:40
 #: users/templates/users/login.html:11
 #: users/templates/users/registration.html:11
 msgid "Error!"
 msgstr "Грешка!"
 
-#: problems/templates/problems/single.html:40
+#: problems/templates/problems/single.html:44
 msgid "Please login in order to check your answers!"
 msgstr "Моля регистрирайте се, за да проверите решението си!"
 
-#: problems/templates/problems/single.html:54
+#: problems/templates/problems/single.html:58
 msgid "About the language"
 msgstr "Относно езика"
 
-#: problems/templates/problems/single.html:58
+#: problems/templates/problems/single.html:63
 msgid "Nota bene"
 msgstr "Забележка"
 
-#: problems/templates/problems/single.html:66
+#: problems/templates/problems/single.html:74
 msgid "Author:"
 msgstr "Автор:"
 
-#: users/views.py:37
-msgid "Please fill in all required fields."
-msgstr "Моля попълнете всички полета, отбелязани като задължителни!"
+#: problems/views.py:64
+msgid "You got it wrong."
+msgstr "Направи грешка."
 
-#: users/views.py:40
-msgid "Real email is required."
-msgstr "Истински имейл ни трябва."
-
-#: users/views.py:45
-msgid "This email is already taken."
-msgstr "Този имейл вече е зает."
-
-#: users/views.py:47
-msgid "The two passwords do not match."
-msgstr "Двете пароли не съвпадат."
-
-#: users/views.py:95 users/views.py:97
-msgid "No such user."
-msgstr "Няма такъв потребител."
-
-#: users/views.py:99
-msgid "User account has been de-activated."
-msgstr "Потребителската сметка е изключена."
+#: problems/views.py:67
+msgid "You got it right."
+msgstr "Правилно решение."
 
 #: users/templates/users/login.html:8 users/templates/users/login.html:24
 msgid "Login"
@@ -277,13 +248,44 @@ msgstr "Завършено!"
 msgid "Registration"
 msgstr "Регистрация"
 
-#: users/templates/users/registration.html:26
+#: users/templates/users/registration.html:24
+msgid "Password again"
+msgstr "Парола отново"
+
+#: users/templates/users/registration.html:28
 msgid "Name"
 msgstr "Имена"
 
-#: users/templates/users/registration.html:28
+#: users/templates/users/registration.html:30
 msgid "Not required, but could contain any unicode character."
 msgstr "Не е задължително, но може да съдържа знаци всякакви."
+
+#: users/views.py:37
+msgid "Please fill in all required fields."
+msgstr "Моля попълнете всички полета, отбелязани като задължителни!"
+
+#: users/views.py:40
+msgid "Real email is required."
+msgstr "Истински имейл ни трябва."
+
+#: users/views.py:45
+msgid "This email is already taken."
+msgstr "Този имейл вече е зает."
+
+#: users/views.py:47
+msgid "The two passwords do not match."
+msgstr "Двете пароли не съвпадат."
+
+#: users/views.py:95 users/views.py:97
+msgid "No such user."
+msgstr "Няма такъв потребител."
+
+#: users/views.py:99
+msgid "User account has been de-activated."
+msgstr "Потребителската сметка е изключена."
+
+#~ msgid "Solved by 42"
+#~ msgstr "Решена от 42"
 
 #~ msgid "English"
 #~ msgstr "английски"
