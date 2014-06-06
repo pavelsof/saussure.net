@@ -4,9 +4,11 @@ from problems.models import *
 
 
 admin.site.register(LanguageFamily)
+admin.site.register(Language)
 admin.site.register(Tag)
 admin.site.register(Problem)
 admin.site.register(Graph)
 admin.site.register(Challenge)
 admin.site.register(Attempt)
+admin.site.register(Comment)
 
