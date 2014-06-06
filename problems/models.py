@@ -51,10 +51,10 @@ class Tag(models.Model):
 class Problem(models.Model):
 	slug = models.SlugField(unique=True)
 	title = models.CharField(max_length=240)
-	language = models.ForeignKey(Language, blank=False, null=False)
+	language = models.ForeignKey(Language, blank=True, null=True)
 	tags = models.ManyToManyField(Tag)
-	author = models.CharField(max_length=240, blank=False, null=False)
-	source = models.CharField(max_length=240, blank=False, null=False)
+	author = models.CharField(max_length=240, blank=True, null=True)
+	source = models.CharField(max_length=240, blank=True, null=True)
 	text = models.TextField()
 	note = models.TextField(blank=True, null=True)
 	number_of_challenges = models.PositiveSmallIntegerField(default=4)
