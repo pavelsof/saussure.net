@@ -1,0 +1,6 @@
+{
+  "name": "project-saussure",
+  "dependencies": {
+    "bootstrap": "~3.2.0"
+  }
+}

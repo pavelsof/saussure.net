@@ -6,14 +6,13 @@
 	
 	<title>{% block title %}{% trans "Project Saussure" %}{% endblock %}</title>
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/style.css' %}" />
 	<link rel="stylesheet" type="text/css" media="screen" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic" />
 	<link rel="stylesheet" type="text/css" media="screen" href="http://fonts.googleapis.com/css?family=Roboto+Condensed:700&subset=latin,cyrillic" />
-	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'dist/style.css' %}" />
+	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'style.css' %}" />
 	
-	<script type="text/javascript" src="{% static 'vendor/jquery-2.1.0.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'dist/script.js' %}"></script>
+	<script type="text/javascript" src="{% static 'vendor/script.js' %}"></script>
+	<script type="text/javascript" src="{% static 'script.js' %}"></script>
 	{% block scripts %}{% endblock %}
 </head>
 <body>

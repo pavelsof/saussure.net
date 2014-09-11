@@ -1,5 +1,7 @@
-base/static/node_modules/*
+bower_components/*
 development/*
+node_modules/*
 project/settings_local.py
+static/*
 *.pyc
 *.swp
