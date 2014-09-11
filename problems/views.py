@@ -58,6 +58,9 @@ class Single(View):
 		"""
 		Handles challenge submission.
 		"""
+		if not request.user.is_authenticated():
+			raise Http404
+		
 		self.identify_problem(slug)
 		if not self.check_challenges(request):
 			success = False
